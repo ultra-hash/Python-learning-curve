@@ -8,29 +8,26 @@ Given two integer numbers return their product only if the product is greater th
 # multiplication
 number1 = 20
 number2 = 30
-expected Output: 600
+expected Output: 50
+
+number1 = 40
+number2 = 30
+expected output: 1200
 
 
 code:
 --------------------------
-number1 = 20
-number2 = 30
-print(number1 * number2)
+def myfun(n1,n2):
+    product = n1 * n2
+    if product >= 1000:
+        return product
+    else:
+        return n1+n2
+print('The result is', myfun(20,30))
+print()
+print('The result is',myfun(100,20))
 --------------------------
 
-
-# addition
-number1 = 40
-number2 = 30
-expected output: 70
-
-
-code:
----------------------------
-number1 = 40
-number2 = 30
-print(number1 + number2)
----------------------------
 
 
 
