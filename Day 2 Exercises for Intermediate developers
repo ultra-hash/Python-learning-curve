@@ -1,0 +1,212 @@
+Exercise 1: Reverse each word of a string
+Given:
+str = 'My Name is Jessa'
+
+Expected Output
+yM emaN si asseJ
+
+code:
+__________________________________
+str = 'My Name is Jessa'
+result = []
+for i in str.split():
+    result.append(i[::-1])
+print(" ".join(result))
+___________________________________
+
+######################################################################################################################
+
+Exercise 2: Read text file into a variable and replace all newlines with space
+Given: Assume you have a following text file (sample.txt).
+Line1
+line2
+line3
+line4
+line5
+
+Expected Output:
+Line1 line2 line3 line4 line5
+
+code:
+_________________________________________
+file = open('sample.txt')
+for line in file.readlines():
+    print(line.replace('\n'," "), end=" ")
+file.close()
+___________________________________________
+
+######################################################################################################################
+
+Exercise 3: Remove items from a list while iterating
+Description:
+
+In this question, You need to remove items from a list while iterating but without creating a different copy of a list.
+
+Remove numbers greater than 50
+
+Given:
+number_list = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+Expected Output:
+[10, 20, 30, 40, 50]
+
+code:
+______________________________________________
+number_list = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+p = False
+pi= 0
+for i in range(len(number_list)):
+    if p == True:
+        if number_list[i-pi] > 50:
+            number_list.pop(i-pi)
+            p = True
+            pi+=1
+    elif number_list[i] > 50:   
+        number_list.pop(i)
+        p = True
+        pi+=1
+print(number_list)
+_________________________________________________
+
+######################################################################################################################
+
+Exercise 4: Reverse Dictionary mapping
+Given:
+ascii_dict = {'A': 65, 'B': 66, 'C': 67, 'D': 68}
+
+Expected Output:
+{65: 'A', 66: 'B', 67: 'C', 68: 'D'}
+
+code:
+__________________________________________________
+ascii_dict = {'A': 65, 'B': 66, 'C': 67, 'D': 68}
+result = {}
+for x,y in ascii_dict.items():
+    result[y]=x
+print(result)
+_________________________________________________
+
+######################################################################################################################
+
+Exercise 5: Display all duplicate items from a list
+Given:
+sample_list = [10, 20, 60, 30, 20, 40, 30, 60, 70, 80]
+
+Expected Output:
+[20, 60, 30]
+
+code:
+_____________________________________________________
+sample_list = [10, 20, 60, 30, 20, 40, 30, 60, 70, 80]
+exits=set()
+result = []
+for x in sample_list:
+    if x in exits:
+        result.append(x)
+    else:
+        exits.add(x)
+print(result)
+________________________________________________________
+
+######################################################################################################################
+
+Exercise 6: Filter dictionary to contain keys present in the given list
+Given:
+# Dictionary
+d1 = {'A': 65, 'B': 66, 'C': 67, 'D': 68, 'E': 69, 'F': 70}
+
+# Filter dict using following keys
+l1 = ['A', 'C', 'F']
+
+Expected Output:
+new dict {'A': 65, 'C': 67, 'F': 70}
+
+code:
+____________________________________________________________
+# Dictionary
+d1 = {'A': 65, 'B': 66, 'C': 67, 'D': 68, 'E': 69, 'F': 70}
+# Filter dict using following keys
+l1 = ['A', 'C', 'F']
+result = {x:y for x,y in d1.items() if x in l1}
+print(result)
+____________________________________________________________
+
+######################################################################################################################
+
+Exercise 7: Print the following number pattern
+
+expected:
+1 1 1 1 1 
+2 2 2 2 
+3 3 3 
+4 4 
+5
+
+code:
+________________________________________
+
+for i in range(1,6):
+    print(f'{i} '*(6-i))
+_________________________________________
+
+######################################################################################################################
+
+Exercise 8: Create an inner function
+Question description: -
+
+Create an outer function that will accept two strings, x and y. (x= 'Emma' and y = 'Kelly'.
+Create an inner function inside an outer function that will concatenate x and y.
+At last, an outer function will join the word 'developer' to it.
+
+Expected Output:
+EmmaKellyDevelopers
+
+code:
+______________________________________
+def outerfunction(x,y):
+    def innnerfunction():
+        result = str(x)+str(y)
+        return result
+    return innnerfunction()+'Developer'
+    
+print(outerfunction('Emma','Kelly'))
+_______________________________________
+
+######################################################################################################################
+
+Exercise 9: Modify the element of a nested list inside the following list
+Change the element 35 to 3500
+
+Given:
+list1 = [5, [10, 15, [20, 25, [30, 35], 40], 45], 50]
+
+Expected Output:
+[5, [10, 15, [20, 25, [30, 3500], 40], 45], 50]
+
+code:
+_____________________________________________________
+list1 = [5, [10, 15, [20, 25, [30, 35], 40], 45], 50]
+list1[1][2][2][1] = 3500
+print(list1)
+______________________________________________________
+
+######################################################################################################################
+
+Exercise 10: Access the nested key increment from the following dictionary
+Given:
+emp_dict = {
+    "company": {
+        "employee": {
+            "name": "Jess",
+            "payable": {
+                "salary": 9000,
+                "increment": 12
+            }
+        }
+    }
+}
+
+code:
+_______________________________________________________________
+print(emp_dict['company']['employee']['payable']['increment'])
+________________________________________________________________
