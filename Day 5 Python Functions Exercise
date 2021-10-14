@@ -196,11 +196,17 @@ Expected Output:
 
 code:
 _________________________________________
-list1 =[]
-for i in range(4,30,2):
-    list1.append(i)
+def even_between(start, end):
+    list1 =[]
+    if start%2 != 0:
+        start = start+1
+    for i in range(start, end, 2):
+        list1.append(i)
+    return list1
 
-print(list1)
+
+result = even_between(4, 30)
+print(result)
 _________________________________________
 
 Exercise 9: Find the largest item from a given list
