@@ -1,0 +1,218 @@
+Python String Exercise with Solutions
+____________________________________________________________________________________________________________
+
+Exercise 1A: Create a string made of the first, middle and last character
+
+Write a program to create a new string made of an input string’s first, middle, and last character.
+
+Given:
+
+str1 = "James"
+
+Expected Output:
+
+Jms
+
+code:
+___________________________________________________________
+
+s = 'James'
+print(s[0]+s[len(s)//2]+s[-1])
+
+___________________________________________________________
+
+Exercise 1B: Create a string made of the middle three characters
+
+Write a program to create a new string made of the middle three characters of an input string.
+
+Given:
+
+Case 1
+
+str1 = "JhonDipPeta"
+
+Output
+
+Dip
+
+Case 2
+
+str2 = "JaSonAy"
+
+Output
+
+Son
+
+
+
+code:
+___________________________________________________________
+
+def middle3(string):
+    mn = len(string)//2
+    return string[(mn-1):(mn+2)]
+
+
+str1 = "JhonDipPeta"
+str2 = "JaSonAy"
+result = middle3(str1)
+print(result)
+result = middle3(str2)
+print(result)
+
+___________________________________________________________
+
+Exercise 2: Append new string in the middle of a given string
+
+Given two strings, s1 and s2. Write a program to create a new string s3 by appending s2 in the middle of s1.
+
+Given:
+
+s1 = "Ault"
+s2 = "Kelly"
+
+Expected Output:
+
+AuKellylt
+
+
+code:
+___________________________________________________________
+
+def add_string_in_middle(string1, string2):
+    mn = len(string1)//2
+    return s1[:mn]+s2+s1[mn:]
+
+
+s1 = "Ault"
+s2 = "Kelly"
+
+result = add_string_in_middle(s1, s2)
+print(result)
+
+___________________________________________________________
+
+
+Exercise 3: Create a new string made of the first, middle, and last characters of each input string
+
+Given two strings, s1 and s2, write a program to return a new string made of s1 and s2’s first, middle, and last characters.
+
+Given:
+
+s1 = "America"
+s2 = "Japan"
+
+Expected Output:
+
+AJrpan
+
+
+
+code:
+___________________________________________________________
+
+def first_middle_last(string1, string2):
+    mn1 = len(string1)//2
+    mn2 = len(string2)//2
+    return s1[0]+s2[0]+s1[mn1]+s2[mn2]+s1[-1]+s2[-1]
+
+
+s1 = "America"
+s2 = "Japan"
+
+result = first_middle_last(s1, s2)
+print(result)
+
+___________________________________________________________
+
+Exercise 4: Arrange string characters such that lowercase letters should come first
+
+Given string contains a combination of the lower and upper case letters. Write a program to arrange the characters of a string so that all lowercase letters should come first.
+
+Given:
+
+str1 = PyNaTive
+
+Expected Output:
+
+yaivePNT
+
+
+code:
+___________________________________________________________
+
+def small_first(string1):
+    small = ''
+    cap = ''
+    for i in string1:
+        if i.isupper():
+            cap+=i
+        else:
+            small+=i
+    return small+cap
+
+
+str1 = 'PyNaTive'
+
+
+print(small_first(str1))
+___________________________________________________________
+
+
+Exercise 5: Count all letters, digits, and special symbols from a given string
+
+Given:
+
+str1 = "P@#yn26at^&i5ve"
+
+Expected Outcome:
+
+Total counts of chars, digits, and symbols 
+
+Chars = 8 
+Digits = 3 
+Symbol = 4
+
+
+
+code:
+___________________________________________________________
+
+def small_first(string1):
+    c = 0
+    d = 0
+    s = 0
+    for i in string1:
+        if i.isalpha():
+            c += 1
+        elif i.isdigit():
+            d += 1
+        else:
+            s += 1
+    return c, d, s
+
+
+str1 = "P@#yn26at^&i5ve"
+Chars, Digits, Symbol = small_first(str1)
+print(f'Total counts of chars, digits, and symbols\nChars = {Chars}\nDigits = {Digits}\nSymbol = {Symbol}')
+___________________________________________________________
+
+Exercise 6: Create a mixed String using the following rules
+
+Given two strings, s1 and s2. Write a program to create a new string s3 made of the first char of s1, then the last char of s2, Next, the second char of s1 and second last char of s2, and so on. Any leftover chars go at the end of the result.
+
+Given:
+
+s1 = "Abc"
+s2 = "Xyz"
+
+Expected Output:
+
+AzbycX
+
+
+code:
+___________________________________________________________
+
+print(f'Total counts of chars, digits, and symbols\nChars = {Chars}\nDigits = {Digits}\nSymbol = {Symbol}')
+___________________________________________________________
