@@ -214,5 +214,288 @@ AzbycX
 code:
 ___________________________________________________________
 
-print(f'Total counts of chars, digits, and symbols\nChars = {Chars}\nDigits = {Digits}\nSymbol = {Symbol}')
+s1 = "Ynf"
+s2 = "PYnative"
+result = ""
+while len(s1) != 0 or len(s2) != 0:
+    if len(s1) != 0:
+        result += s1[0]
+        s1 = s1[1:]
+    if len(s2) != 0:
+        result += s2[-1]
+        s2 = s2[:-1]
+print(result)
 ___________________________________________________________
+
+Exercise 7: String characters balance Test
+Write a program to check if two strings are balanced. For example, strings s1 and s2 are balanced if all the characters in the s1 are present in s2. The character’s position doesn’t matter.
+
+Given:
+Case 1:
+
+s1 = "Yn"
+s2 = "PYnative"
+Expected Output:
+
+True
+Case 2:
+
+s1 = "Ynf"
+s2 = "PYnative"
+Expected Output:
+
+False
+
+code:
+_______________________________________________________________________________
+
+s1 = "Yn"
+s2 = "PYnative"
+result = True
+for s in s1:
+    if s not in s2:
+        result = False
+        break
+print(result)
+
+________________________________________________________________________________
+
+
+Exercise 8: Find all occurrences of a substring in a given string by ignoring the case
+Write a program to find all occurrences of “USA” in a given string ignoring the case.
+
+Given:
+
+str1 = "Welcome to USA. usa awesome, isn't it?"
+Expected Outcome:
+
+The USA count is: 2
+
+code:
+____________________________________________________________________________________
+
+str1 = "Welcome to USA. usa awesome, isn't it?"
+str1 = str1.upper()
+count = str1.count('USA')
+print('the USA case :',count)
+____________________________________________________________________________
+
+
+
+Exercise 9: Calculate the sum and average of the digits present in a string
+Given a string s1, write a program to return the sum and average of the digits that appear in the string, ignoring all other characters.
+
+Given:
+
+str1 = "PYnative29@#8496"
+Expected Outcome:
+
+Sum is: 38 Average is  6.333333333333333
+
+code:
+____________________________________________________________________________
+
+str1 = "PYnative29@#8496"
+n = []
+for i in str1:
+    if i.isdigit():
+        n.append(int(i))
+print('sum is:',sum(n),'Average is:', sum(n)/len(n))
+____________________________________________________________________________
+
+Exercise 10: Write a program to count occurrences of all characters within a string
+Given:
+
+str1 = "Apple"
+
+Expected Outcome:
+
+{'A': 1, 'p': 2, 'l': 1, 'e': 1}
+
+code:
+____________________________________________________________________________
+
+str1 = "Apple"
+dictonary = {}
+ignore = set()
+for s in str1:
+    if s in ignore:
+        continue
+    ignore.add(s)
+    c = str1.count(s)
+    dictonary[s] = c
+print(dictonary)
+___________________________________________________________________________
+
+
+Exercise 11: Reverse a given string
+Given:
+
+str1 = "PYnative"
+Expected Output:
+
+evitanYP
+
+code:
+___________________________________________________________________________
+
+str1 = "PYnative"
+print(str1[::-1])
+___________________________________________________________________________
+
+Exercise 12: Find the last position of a given substring
+Write a program to find the last position of a substring “Emma” in a given string.
+
+Given:
+
+str1 = "Emma is a data scientist who knows Python. Emma works at google."
+Expected Output:
+
+Last occurrence of Emma starts at index 43
+
+code:
+___________________________________________________________________________
+
+str1 = "Emma is a data scientist who knows Python. Emma works at google."
+word_to_find = 'Emma'
+temp = 0
+while str1.find(word_to_find, temp) != -1:
+    i = str1.find(word_to_find, temp)
+    temp = i+1
+print(i)
+
+___________________________________________________________________________
+
+Exercise 13: Split a string on hyphens
+Write a program to split a given string on hyphens and display each substring.
+
+Given:
+
+str1 = Emma-is-a-data-scientist
+Expected Output:
+
+Displaying each substring
+
+Emma
+is
+a
+data
+scientist
+
+code:
+___________________________________________________________________________
+
+str1 = 'Emma-is-a-data-scientist'
+l = str1.split('-')
+print('Displaying each substring\n')
+for i in l:
+    print(i)
+___________________________________________________________________________
+
+
+Exercise 14: Remove empty strings from a list of strings
+Given:
+
+str_list = ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
+Expected Output:
+
+Original list of sting
+['Emma', 'Jon', '', 'Kelly', None, 'Eric', '']
+
+After removing empty strings
+['Emma', 'Jon', 'Kelly', 'Eric']
+
+code:
+___________________________________________________________________________
+
+str_list = ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
+
+for i in str_list:
+    if i == "" or i == None:
+        str_list.remove(i)
+print(str_list)
+___________________________________________________________________________
+
+Exercise 15: Remove special symbols / punctuation from a string
+Given:
+
+str1 = "/*Jon is @developer & musician"
+Expected Output:
+
+"Jon is developer musician"
+
+
+code:
+___________________________________________________________________________
+
+str1 = "/*Jon is @developer & musician"
+result = ""
+for s in str1:
+        if s.isalpha() or (s == " " and result[-1] != " "):
+            result+=s
+print(result)  
+___________________________________________________________________________
+
+Exercise 16: Removal all characters from a string except integers
+Given:
+
+str1 = 'I am 25 years and 10 months old'
+Expected Output:
+
+2510
+
+code:
+___________________________________________________________________________
+
+str1 = 'I am 25 years and 10 months old'
+result = ""
+for i in str1:
+    if i.isdigit():
+        result+=i
+print(result)
+___________________________________________________________________________
+
+
+Exercise 17: Find words with both alphabets and numbers
+Write a program to find words with both alphabets and numbers from an input string.
+
+Given:
+
+str1 = "Emma25 is Data scientist50 and AI Expert"
+Expected Output:
+
+Emma25
+scientist50
+
+
+code:
+______________________________________________________________________
+str1 = "Emma25 is Data scientist50 and AI Expert"
+for i in str1.split():
+    if not i.isalpha() and not i.isdigit():
+        print(i)
+______________________________________________________________________
+
+
+Exercise 18: Replace each special symbol with # in the following string
+Given:
+
+str1 = '/*Jon is @developer & musician!!'
+Expected Output:
+
+##Jon is #developer # musician##
+
+
+code:
+______________________________________________________________________
+str1 = '/*Jon is @developer & musician!!'
+result = ""
+for i in str1:
+    if not i.isalnum() and i != " ":
+        result+='#'
+    else:
+        result+=i
+print(result)
+______________________________________________________________________
+
+
