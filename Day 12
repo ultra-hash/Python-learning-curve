@@ -1,0 +1,212 @@
+__________________________________________________________________________________________________________________
+
+Exercise 1: Print current date and time in Python
+code:
+____________________________________________________________
+
+import datetime
+print(datetime.datetime.now())
+
+____________________________________________________________
+
+Exercise 2: Convert string into a datetime object
+
+For example, You received the following date in string format. Please convert it into Python’s datetime object.
+
+Given:
+
+date_string = "Feb 25 2020 4:20PM"
+
+Expected output:
+
+2020-02-25 16:20:00
+
+code:
+____________________________________________________________
+
+from _datetime import datetime
+date_string = "Feb 25 2020 4:20PM"
+date_obj = datetime.strptime(date_string, '%b %d %Y %I:%M%p')
+print(date_obj)
+
+
+____________________________________________________________
+
+
+Exercise 3: Subtract a week (7 days)  from a given date in Python
+
+Given:
+
+given_date = datetime(2020, 2, 25)
+
+Expected output:
+
+2020-02-18
+
+code:
+____________________________________________________________
+
+from _datetime import datetime, timedelta
+given_date = datetime(2020, 2, 25)
+result = given_date - timedelta(weeks=1)
+print(result.date())
+
+____________________________________________________________
+
+
+Exercise 4: Print a date in a the following format
+
+Day_name  Day_number  Month_name  Year
+
+Given:
+
+given_date = datetime(2020, 2, 25)
+
+Expected output:
+
+Tuesday 25 February 2020
+
+Refer Date format codes for help
+code:
+____________________________________________________________
+
+from _datetime import datetime, timedelta, date
+given_date = datetime(2020, 2, 25)
+print(datetime.strftime(given_date, '%A %d %B %Y'))
+
+____________________________________________________________
+
+
+Exercise 5: Find the day of the week of a given date
+
+Given:
+
+given_date = datetime(2020, 7, 26)
+
+Expected output:
+
+Sunday
+
+code:
+____________________________________________________________
+
+from _datetime import datetime, timedelta, date
+given_date = datetime(2020, 7, 26)
+print(datetime.strftime(given_date, '%A'))
+
+____________________________________________________________
+
+
+Exercise 6: Add a week (7 days) and 12 hours to a given date
+
+Given:
+
+# 2020-03-22 10:00:00
+given_date = datetime(2020, 3, 22, 10, 0, 0)
+
+Expected output:
+
+2020-03-29 22:00:00
+
+code:
+____________________________________________________________
+
+from _datetime import datetime, timedelta
+given_date = datetime(2020, 3, 22, 10, 0, 0)
+result = given_date + timedelta(weeks=1, hours=12)
+print(result)
+
+____________________________________________________________
+
+
+Exercise 7: Print current time in milliseconds
+
+code:
+____________________________________________________________
+
+from time import time
+
+print(int(round(time() * 1000)))
+
+____________________________________________________________
+Exercise 8: Convert the following datetime into a string
+
+Given:
+
+given_date = datetime(2020, 2, 25)
+
+Expected output:
+
+"2020-02-25 00:00:00"
+
+code:
+____________________________________________________________
+
+from datetime import datetime
+given_date = datetime(2020, 2, 25)
+string = str(given_date)
+print(string)
+
+____________________________________________________________
+
+
+Exercise 9: Calculate the date 4 months from the current date
+
+Given:
+
+# 2020-02-25
+given_date = datetime(2020, 2, 25).date()
+
+Expected output:
+
+2020-06-25
+
+code:
+____________________________________________________________
+
+from datetime import datetime, timedelta
+# 2020-02-25
+given_date = datetime(2020, 2, 25).date()
+days_in_month = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+month = given_date.month
+days_to_reach = sum(days_in_month[month-1:month+4])-given_date.day-(days_in_month[month+4]-given_date.day-1)
+result = given_date + timedelta(days_to_reach)
+print(result)
+
+#afterknoiung about relative relative delta
+
+
+____________________________________________________________
+
+
+Exercise 10: Calculate number of days between two given dates
+
+Given:
+
+# 2020-02-25
+date_1 = datetime(2020, 2, 25)
+
+# 2020-09-17
+date_2 = datetime(2020, 9, 17)
+
+Expected output:
+
+205 days
+
+code:
+____________________________________________________________
+
+
+from datetime import datetime, timedelta
+
+# 2020-02-25
+date_1 = datetime(2020, 2, 25)
+
+# 2020-09-17
+date_2 = datetime(2020, 9, 17)
+
+result = date_1 - date_2
+
+print(abs(result.days), 'days')
+
+____________________________________________________________
